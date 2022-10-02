@@ -24,11 +24,11 @@ pub fn object_source_map(
 
         let mut in_path = base_path.clone();
         in_path.pop();
-        in_path.push(&src);
+        in_path.push(src);
 
         let mut out_path = PathBuf::new();
         out_path.push("bld");
-        out_path.push(&base_path);
+        out_path.push(base_path);
         out_path.pop();
         out_path.push(&out);
         objs.push((in_path, out_path));

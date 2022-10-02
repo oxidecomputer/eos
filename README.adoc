@@ -53,7 +53,7 @@ shop tool?
 
 === Commands
 
-=== Usage
+== Usage
 
 ----
 git clone -b eos https://github.com/oxidecomputer/illumos-gate
