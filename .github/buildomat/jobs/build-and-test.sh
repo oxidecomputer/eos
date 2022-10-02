@@ -19,6 +19,10 @@ set -o xtrace
 cargo --version
 rustc --version
 
+banner "packages"
+pfexec pkg install onbld
+export PATH="/opt/onbld/bin/i386:$PATH"
+
 banner "build"
 cargo check
 cargo build

@@ -46,7 +46,7 @@ shop tool?
 == Status
 
 === Kernel
-* https://github.com/oxidecomputer/illumos-gate/blob/eos/usr/src/uts/common/build.toml[Genunix]
+* https://github.com/oxidecomputer/illumos-gate/blob/eos/usr/src/uts/common/build.toml[genunix]
 * https://github.com/oxidecomputer/illumos-gate/blob/eos/usr/src/uts/common/inet/ip/build.toml[ip]
 
 === Libraries
