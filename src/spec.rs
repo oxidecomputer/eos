@@ -47,7 +47,8 @@ impl Module {
         path: &PathBuf,
     ) -> Result<Vec<ninja::BuildStatement>> {
         let osm = util::object_source_map(path, &self.src)?;
-        let mut stmts = util::object_build_statements(&osm);
+        let mut stmts =
+            util::object_build_statements(ninja::Spec::kernel_cflags(), &osm);
 
         let mod_deps = if !self.dependencies.is_empty() {
             vec![ninja::Variable {
@@ -94,7 +95,8 @@ impl Genunix {
         path: &PathBuf,
     ) -> Result<Vec<ninja::BuildStatement>> {
         let osm = util::object_source_map(path, &self.src)?;
-        let mut stmts = util::object_build_statements(&osm);
+        let mut stmts =
+            util::object_build_statements(ninja::Spec::kernel_cflags(), &osm);
         stmts.push(ninja::BuildStatement {
             input: osm
                 .iter()

@@ -47,7 +47,7 @@ impl Spec {
     }
 
     /// Compiler flags used when compiling kernel objects.
-    fn kernel_cflags() -> String {
+    pub fn kernel_cflags() -> Vec<&'static str> {
         vec![
             "-std=gnu99",
             "-O3",
@@ -95,22 +95,21 @@ impl Spec {
             "-fdiagnostics-color=always",
             "--param=max-inline-insns-single=450",
         ]
-        .join(" ")
     }
 
     /// Flags to use when linking kernel components.
-    fn kernel_ldflags() -> String {
-        vec!["-ztype=kmod"].join(" ")
+    fn kernel_ldflags() -> Vec<&'static str> {
+        vec!["-ztype=kmod"]
     }
 
     fn init_variables(&mut self) {
         self.variables.push(Variable {
             name: "kernel_cflags".into(),
-            value: Self::kernel_cflags(),
+            value: Self::kernel_cflags().join(" "),
         });
         self.variables.push(Variable {
             name: "kernel_ldflags".into(),
-            value: Self::kernel_ldflags(),
+            value: Self::kernel_ldflags().join(" "),
         });
     }
 
