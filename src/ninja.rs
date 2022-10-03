@@ -236,7 +236,12 @@ impl BuildStatement {
     /// Emit this build statement in text form.
     fn emit(&self) -> String {
         let mut s =
-            format!("build {}: {} {}\n", self.output, self.rule, self.input,);
+            format!("build {}: {} {}", self.output, self.rule, self.input);
+        if !self.implicit_deps.is_empty() {
+            s += &format!(" | {}\n", self.implicit_deps.join(" "));
+        } else {
+            s += "\n";
+        }
         for d in &self.variables {
             s += &format!("  {}", d.emit());
         }
